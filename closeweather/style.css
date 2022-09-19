@@ -1,0 +1,38 @@
+input{
+    border: none;
+    border-bottom: 2px solid  white;
+    box-shadow:none;
+    outline:none;
+    background-color: transparent;
+    color:white;
+    margin-right:auto;
+    margin-left:auto;
+    display:block;
+    font-size:18px;
+}
+div{
+   text-align:center;
+   color:white;
+}   
+body{
+    background-image: url(R.jpg);
+    background-size:cover;
+    height: 100vh;
+    font-family: 'Noto Sans', sans-serif;
+    background-position: top center;
+    background-repeat:no-repeat;
+}
+button{
+    width:120px;
+    height:40px;
+    background-color:#004fff;
+    color:white;
+    box-shadow: 0 4px 16px rgba(0, 79, 255, 0.3);
+    font-size:16px;
+    font-weight:bold;
+    border-radius:20px;
+
+}
+a{
+    text-decoration-line: none;
+}

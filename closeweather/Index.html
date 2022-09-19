@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Closeweather-Login</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script>
+       
+
+    </script>
+    <div class="container">
+    <img width="100" style="position:absolute; left:0px;top:0px;" id="weatherIcon" class="weatherIcon">
+    <a href="#" onclick="massage()">
+    <span style="font-size:22px; color:white;  position:absolute;left:16px; top:18px;" class="weatherInfo" ></span></a>
+</div>
+    <script src="weatherforlogin.js"></script>
+    <img style="position:absolute;top:5px;right:30px;" width="70" src="closeweathericon.png">
+    <h3 style="color:white; text-align:center; position:absolute; top:60px; right:6px;">Closeweather</h3>
+    <br><br><br><br><br><br>
+    
+    <form>
+        <h1 id="1" style="text-align:center; color:white;">Sign Up</h1>
+        <div id="2"> email : <input size="25" type="email" id="signUpEmail" class="input1" /> </div>
+        <div id="3"> password : <input size="25" type="password" id="signUpPassword" class="input2" /> </div>
+        <br>
+        <button type="submit" id="signUpButton" style="margin-left:auto;margin-right:auto;display:block; " >Sign Up</button>
+        <br>
+        <button id="4" style="margin-left:auto;margin-right:auto;display:block;" >Log In page</button>
+        <p style="color:white; text-align: center; margin-top:10px;" id="yaha">you already have account?</p>
+    </form>
+
+    <form>
+        <h1 id="5" style="text-align:center;color:white;">Log In</h1>
+        <div id="6"> email : <input size="25" type="email" id="signInEmail" class="input3" /> </div>
+        <div id="7"> password : <input size="25" type="password" id="signInPassword" class="input4" /> </div>
+        <br>
+        <div id="8"><button type="submit" id="signInButton" >Log In</button></div>
+        <br>
+        <div id="9"><button id="boba">Sign Up page</button></div>
+        <p style="color:white; text-align: center; margin-top:10px;" id="ydha">you don't have account?</p>
+    </form>
+        <a href="index2.html"><button id="mozila" style="position:absolute;top:10px;left:10px;">go to member site</button></a>
+    <script>
+        
+    </script>
+   <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyA_xO5u_uk54hTDPLgDOZK_gJjwmqot5Y4",
+      authDomain: "login-acb54.firebaseapp.com",
+      projectId: "login-acb54",
+      storageBucket: "login-acb54.appspot.com",
+      messagingSenderId: "375303993216",
+      appId: "1:375303993216:web:f11f0e2948d7732b587365",
+      measurementId: "G-TDGYH5FWJ5"
+    };
+    $(document).ready(function(){
+         $("#5").hide();
+         $("#6").hide();
+         $("#7").hide();
+         $("#8").hide();
+         $("#9").hide();
+         $("#ydha").hide();
+         $("#mozila").hide();
+         $("#4").click(function(){
+         $("#1").hide();
+         $("#2").hide();
+         $("#3").hide();
+         $("#4").hide();
+         $("#yaha").hide();
+         $("#signUpButton").hide();
+         $("#5").show();
+         $("#6").show();
+         $("#7").show();
+         $("#8").show();
+         $("#9").show();
+         $("#ydha").show();
+         });
+         $("#boba").click(function(){
+         $("#5").hide();
+         $("#6").hide();
+         $("#7").hide();
+         $("#8").hide();
+         $("#9").hide();
+         $("#yaha").show();
+         $("#ydha").hide();
+         $("#1").show();
+         $("#2").show();
+         $("#3").show();
+         $("#4").show();
+         $("#signUpButton").show();
+         });
+         $("signInButton").click(function(){
+         $("#mozila").show()
+         });
+        });
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
+
+        const auth = getAuth();
+
+        document.getElementById('signUpButton').addEventListener('click', (event) => {
+            event.preventDefault()
+            const signUpEmail = document.getElementById('signUpEmail').value
+            const signUpPassword = document.getElementById('signUpPassword').value
+
+            createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+                .then((userCredential) => {
+                    console.log(userCredential)
+                    // Signed in
+                    const user = userCredential.user;
+                    alert("Sign up success")
+                    // ...
+                })
+                .catch((error) => {
+                    console.log('error')
+                   
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                });
+
+        })
+        
+        document.getElementById('signInButton').addEventListener('click', (event) => {
+            event.preventDefault()
+            
+            const signInEmail = document.getElementById('signInEmail').value
+            const signInPassword = document.getElementById('signInPassword').value
+            signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+                .then((userCredential) => {
+                    // Signed in
+                    console.log(userCredential)
+                    const user = userCredential.user;
+                    localStorage.setItem('useremail', userCredential.user.email)
+                    alert("")
+                    location.reload()
+                    $("#mozila").show();
+                   
+                    
+                })
+                .catch((error) => {
+                    console.log('로그인 실패')
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                });
+               
+
+        })
+        document.getElementById('4').addEventListener('click', (event) => {
+            event.preventDefault()
+        
+        })
+
+        document.getElementById('boba').addEventListener('click', (event) => {
+            event.preventDefault()
+        })
+       
+        const useremail = localStorage.getItem("useremail")
+
+        if(useremail === null) {
+        
+        }else{
+            const url = 'index2.html';
+      const popup = window.open(url);
+      if(!popup) {
+        alert('팝업 차단을 해제해주세요')
+      } else {
+        popup
+      }
+        
+        
+         
+         $("#1").hide();
+         $("#2").hide();
+         $("#3").hide();
+         $("#4").hide();
+         $("#signUpButton").hide();
+         $("#5").hide();
+         $("#6").hide();
+         $("#7").hide();
+         $("#8").hide();
+         $("#9").hide();
+         $("#yaha").hide();
+         $("#mozila").show();
+        }
+         
+    /**mi an ha da i geo boyeo julyeogo eogeulo ggeul eot da naruto sasuke ssaumsujun real silhwa nya? jinjja syegyegwan chwogangjaeul eu ssaum ida geujjinddagatdeonnarutogamatna? jinjja narutoneun jeonseolida..jin **/
+  </script>
+
+</body>
+</html>

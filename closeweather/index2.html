@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closeweather</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <script src="map.js"></script>
+    <link rel="stylesheet" href="map.css">
+
+</head>
+<body>
+<!--<div id="map" ></div>
+
+<!-
+ The `defer` attribute causes the callback to execute after the full HTML
+ document has been parsed. For non-blocking uses, avoiding race conditions,
+ and consistent behavior across browsers, consider loading using Promises
+ with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+-->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtzsaQSHfhNU6BciR26mRKh7AfdZG1rps&callback=initMap&v=weekly"
+        defer
+></script>-->
+    <style>
+        body{
+            background-image: url(R.jpg);
+            
+            background-size: cover;
+            background-position: top center;
+            font-family: 'Noto Sans', sans-serif;
+        }
+        .container{
+            min-height: 100vh;
+        }
+        button{
+    width:120px;
+    height:40px;
+    background-color:#004fff;
+    color:white;
+    box-shadow: 0 4px 16px rgba(0, 79, 255, 0.3);
+    font-size:16px;
+    font-weight:bold;
+    border-radius:20px;
+        }
+        input{
+    border: none;
+    border-bottom: 2px solid  white;
+    box-shadow:none;
+    outline:none;
+    background-color: transparent;
+    color:white;
+    margin-right:auto;
+    margin-left:auto;
+    display:block;
+    font-size:18px;
+}
+        
+        
+    </style> 
+    <button id="logout">Log out</button>
+
+    <br><br><br>
+    <input style="margin-left:auto; margin-right:auto; display:block;" id="search-box" placeholder="search place" class="search-box" />
+    <div class="container "style="text-align:center; ">
+
+        <br><br><br><br><br>
+    <center><span style="font-size: 18px; color:white;" class="location"></span></center>
+    <center><img width="120" class="weatherIcon"></center>
+    <hr style="width:50%;">
+    <center><span style="font-size:32px; color:white;" class="temperature"></span></center>
+    <center><span style="font-size:17px; color:white;" class="tempwarm"></span></center>
+    <center><span style="font-size:15px; color:white;  " class="weatherInfo"></span></center>
+        </div>
+        <script src="weather.js"></script>
+    
+
+    <script>
+        const useremail = localStorage.getItem("useremail")
+
+        if(useremail ===  null) {
+            alert("회원가입을 해주세요")
+            window.open("index.html")
+            window.close("index2.html")
+        } else {
+            alert("안녕하세요" + useremail + "님")
+        }
+
+         document.getElementById('logout').addEventListener('click', (event) => {
+            event.preventDefault()
+            localStorage.removeItem("useremail")
+            window.open("index.html");
+            window.close("index2.html")
+        })
+
+    </script>
+    <!--<script type="text/javascript">
+    
+    </script>--
+
+</body>
+</html>
