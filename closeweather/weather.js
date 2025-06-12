@@ -4,7 +4,7 @@
 const api ={
     base:"https://api.openweathermap.org/data/2.5/"
 }
-const API_KEY = "7ce9242fc61fc806b906c5b9538298fe";
+const API_KEY = "";
 const COORDS = 'coords';
 
 const searchbox = document.querySelector('.search-box');
